@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import styles from '@/styles/NavigationCard.module.css'; 
 
 interface NavigationCardProps {
   title: string;
@@ -7,9 +8,9 @@ interface NavigationCardProps {
 
 const NavigationCard: React.FC<NavigationCardProps> = ({ title, path }) => {
   return (
-    <div className="border border-gray-300 p-4 m-2 text-center transition-shadow hover:shadow-lg">
+    <div className={styles.card}>
       <Link href={path}>
-          <h2>{title}</h2>
+        <h2>{title}</h2>
       </Link>
     </div>
   );
