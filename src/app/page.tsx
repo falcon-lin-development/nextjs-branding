@@ -1,27 +1,12 @@
-import Image from 'next/image';
-import client from '@/data/contentful';
+import NavigationCard from '@/components/NavigationCard';
 
-async function getData() {
-  const entries = await client
-    .getEntries
-    //   {
-    //   // content_type: 'blog',
-    // }
-    ();
-  return entries.items;
-}
-
-export default async function Home() {
-  const entries: any[] = await getData();
-
+export default function Home() {
   return (
-    <div>
-      {entries.map((entry) => (
-        <div key={entry.sys.id}>
-          <h2>{entry.fields.title}</h2>
-          <p>{entry.fields.description}</p>
-        </div>
-      ))}
+    <div className="flex flex-wrap">
+      <NavigationCard title="Auth Demo" path="/auth-demo" />
+      <NavigationCard title="CSS Demo" path="/css-demo" />
+      <NavigationCard title="Contentful Demo" path="/contentful" />
+      {/* Add more cards as needed */}
     </div>
   );
 }
