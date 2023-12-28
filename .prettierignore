@@ -1,0 +1,18 @@
+# basic
+dist
+node_modules
+package.json
+
+# directories
+.doc
+cicd
+.github
+
+# files
+README.md
+package-lock.json
+.eslintrc.json
+.prettierrc
+next.config.js
+package-lock.json
+tsconfig.json

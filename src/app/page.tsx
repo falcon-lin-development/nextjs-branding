@@ -1,19 +1,18 @@
-import Image from 'next/image'
-import client from "@/data/contentful";
-
+import Image from 'next/image';
+import client from '@/data/contentful';
 
 async function getData() {
-  const entries = await client.getEntries(
-  //   {
-  //   // content_type: 'blog',
-  // }
-  );
+  const entries = await client
+    .getEntries
+    //   {
+    //   // content_type: 'blog',
+    // }
+    ();
   return entries.items;
 }
 
-
 export default async function Home() {
-  const entries: any[] = await getData()
+  const entries: any[] = await getData();
 
   return (
     <div>
@@ -24,5 +23,5 @@ export default async function Home() {
         </div>
       ))}
     </div>
-  )
+  );
 }
