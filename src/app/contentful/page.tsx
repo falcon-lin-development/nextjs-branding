@@ -1,19 +1,21 @@
-import Image from 'next/image';
+import { NextPage } from 'next';
+// import Image from 'next/image';
 import client from '@/data/contentful';
 import Breadcrumb from '@/components/BreadCrump.client';
+interface Entry {
+  sys: {
+    id: string;
+  };
+  fields: Record<string, any>;
+}
 
-async function getData() {
-  const entries = await client
-    .getEntries
-    //   {
-    //   // content_type: 'blog',
-    // }
-    ();
+async function getData(): Promise<Entry[]> {
+  const entries = await client.getEntries();
   return entries.items;
 }
 
-export default async function Home() {
-  const entries: any[] = await getData();
+const Page: NextPage = async () => {
+  const entries: Entry[] = await getData();
 
   return (
     <>
@@ -30,3 +32,4 @@ export default async function Home() {
     </>
   );
 }
+export default Page;
